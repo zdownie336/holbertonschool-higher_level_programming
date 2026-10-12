@@ -18,7 +18,7 @@ class CustomObject:
             pickle_out = open(filename, "wb")
             pickle.dump(self, pickle_out)
             pickle_out.close()
-        except pickle.PickleError:
+        except pickle.PicklingError:
             return None
 
     @classmethod
@@ -27,5 +27,5 @@ class CustomObject:
             pickle_in = open(filename, "rb")
             output = pickle.load(pickle_in)
             return output
-        except pickle.UnpicklingError:
+        except pickle.UnpicklingError, EOFError:
             return None
