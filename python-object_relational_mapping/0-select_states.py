@@ -1,6 +1,18 @@
 #!/usr/bin/python3
-import MySQLdb
+"""Module: going through how ORMs work."""
 
-db = MySQLdb.connect(host="localhost", port=3306, user="root", passwd="root", db="hbtn_0e_0_usa")
-cur = db.cursor()
-cur.execute("SELECT id ,states FROM hbtn_0e_0_usa ORDER BY states.id ASC")
+import MySQLdb
+import sys
+
+if __name__ == "__main__":
+    db = MySQLdb.connect(
+            host="localhost",
+            user=sys.argv[1],
+            passwd=sys.argv[2],
+            db=sys.argv[3])
+    cur = db.cursor()
+    cur.execute("SELECT * FROM states ORDER BY id ASC")
+    rows = cur.fetchall()
+    for row in rows:
+        print(row)
+        cur.close()
