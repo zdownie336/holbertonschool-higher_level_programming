@@ -20,6 +20,11 @@ if __name__ == "__main__":
                 "ORDER BY cities.id ASC")
     cur.execute(search, (sys.argv[4],))
     rows = cur.fetchall()
+    seperator = ''
     for row in rows:
-        print(row, end=' ')
+        print(seperator, end='')
+        print(row[0], end='')
+        seperator = ', '
+    print()
     cur.close()
+    db.close()
