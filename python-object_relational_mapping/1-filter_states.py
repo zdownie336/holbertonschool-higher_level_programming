@@ -15,7 +15,7 @@ if __name__ == "__main__":
         "SELECT * "
         "FROM states "
         "WHERE name "
-        "LIKE BINARY 'N%'"
+        "LIKE BINARY 'N%' "
         "ORDER BY id ASC")
     rows = cur.fetchall()
     for row in rows:
