@@ -12,11 +12,11 @@ if __name__ == "__main__":
             passwd=sys.argv[2],
             db=sys.argv[3],)
     cur = db.cursor()
-    search =(
-            "SELECT * FROM states "
+    search =("SELECT * FROM states "
             "WHERE name = %s "
-            "ORDER BY id ASC")
+            "ORDER BY id ASC".format())
     cur.execute(search, (sys.argv[4]))
     rows = cur.fetchall()
     for row in rows:
         print(row)
+    cur.close()
