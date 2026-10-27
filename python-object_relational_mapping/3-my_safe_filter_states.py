@@ -13,7 +13,8 @@ if __name__ == "__main__":
             db=sys.argv[3],)
     cur = db.cursor()
     search =("SELECT * FROM states "
-            "WHERE name = %s "
+            "WHERE name "
+            "LIKE BINARY %s"
             "ORDER BY id ASC")
     cur.execute(search, sys.argv[4])
     rows = cur.fetchall()
