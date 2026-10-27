@@ -12,11 +12,12 @@ if __name__ == "__main__":
             passwd=sys.argv[2],
             db=sys.argv[3])
     cur = db.cursor()
-    cur.execute(
+    search = (
                 "SELECT cities.name, states.name FROM cities"
-                "INNER JOIN states "
+                "JOIN states "
                 "ON cities.state_id = states.id "
                 "ORDER BY id ASC")
+    cur.execute(search)
     rows = cur.fetchall()
     for row in rows:
         print(row)
