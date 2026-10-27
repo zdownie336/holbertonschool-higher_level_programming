@@ -13,8 +13,8 @@ if __name__ == "__main__":
             db=sys.argv[3])
     cur = db.cursor()
     cur.execute(
-                "SELECT cities, name FROM states"
-                "ORDER BY id ASC")
+                "SELECT name, states.name FROM cities"
+                "ORDER BY cities.id ASC")
     rows = cur.fetchall()
     for row in rows:
         print(row)
