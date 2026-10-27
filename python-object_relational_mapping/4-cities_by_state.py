@@ -14,7 +14,9 @@ if __name__ == "__main__":
     cur = db.cursor()
     cur.execute(
                 "SELECT name, states.name FROM cities"
-                "ORDER BY cities.id ASC")
+                "INNER JOIN states "
+                "ON cities.state_id = states.id "
+                "ORDER BY id ASC")
     rows = cur.fetchall()
     for row in rows:
         print(row)
