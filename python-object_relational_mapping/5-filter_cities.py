@@ -13,13 +13,13 @@ if __name__ == "__main__":
             db=sys.argv[3],)
     cur = db.cursor()
     search = (
-                "SELECT cities.name FROM cities "
-                "INNER JOIN states "
+                "SELECT cities.name FROM states "
+                "INNER JOIN cities "
                 "ON cities.states_id = states.id"
-                "WHERE states.name LIKE BINARY %s "
+                "WHERE states.name = %s "
                 "ORDER BY cities.id ASC")
     cur.execute(search, (sys.argv[4]),)
     rows = cur.fetchall()
     for row in rows:
-        print(row, end=", ")
+        print(row, end='')
     cur.close()
