@@ -16,9 +16,9 @@ if __name__ == "__main__":
                 "SELECT cities.name FROM states "
                 "INNER JOIN cities "
                 "ON cities.states_id = states.id"
-                "WHERE states.name = %s "
+                "WHERE states.name LIKE BINARY %s "
                 "ORDER BY cities.id ASC")
-    cur.execute(search, (sys.argv[4]),)
+    cur.execute(search, (sys.argv[4]), )
     rows = cur.fetchall()
     for row in rows:
         print(row, end='')
