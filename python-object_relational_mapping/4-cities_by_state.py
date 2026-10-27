@@ -13,7 +13,7 @@ if __name__ == "__main__":
             db=sys.argv[3])
     cur = db.cursor()
     search = (
-                "SELECT cities.name, states.name FROM cities"
+                "SELECT cities.id, cities.name, states.name FROM cities "
                 "JOIN states "
                 "ON cities.state_id = states.id "
                 "ORDER BY id ASC")
