@@ -14,11 +14,11 @@ if __name__ == "__main__":
     cur = db.cursor()
     search = (
                 "SELECT cities.name FROM cities "
-                "WHERE states.name LIKE BINARY %s"
+                "WHERE states.name LIKE BINARY '{}'"
                 "JOIN states "
                 "ON cities.state_id = states.id "
-                "ORDER BY id ASC")
-    cur.execute(search, (sys.argv[4], ))
+                "ORDER BY id ASC".format(sys.argv[4]))
+    cur.execute(search)
     rows = cur.fetchall()
     for row in rows:
         print(row)
