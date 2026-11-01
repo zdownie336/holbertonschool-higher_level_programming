@@ -24,6 +24,6 @@ if __name__ == "__main__":
         first()
 
     if tables is None:
-        print("Nothing")
+        print("Not found")
     else:
         print(tables.id)
