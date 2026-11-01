@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 """Module is for sqlachemy"""
 
-from model_state import Base, State
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy import create_engine
-import sys
-
 if __name__ == "__main__":
+    from model_state import Base, State
+    from sqlalchemy.orm import sessionmaker
+    from sqlalchemy import create_engine
+    import sys
+
     engine = create_engine(
         "mysql+mysqldb://{}:{}@localhost/{}".format(
             sys.argv[1], sys.argv[2], sys.argv[3]
@@ -15,11 +15,11 @@ if __name__ == "__main__":
     )
     Base.metadata.create_all(engine)
 
-    Session = sessionmaker(engine)
+    Session = sessionmaker(bind=engine)
 
     session = Session()
 
-    session.add(State("Louisiana"))
+    session.add(State(name="Louisiana"))
     session.commit()
-    query = session.query(State).order_by(State.id.desc()).first()
-    print(query.id)
+    table = session.query(State).order_by(State.id.desc()).first()
+    print(table.id)
