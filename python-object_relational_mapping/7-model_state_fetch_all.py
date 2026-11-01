@@ -1,9 +1,14 @@
 #!/usr/bin/python3
-"""Module for using ORM SQLAlchemy, linking class to a table"""
-from sqlalchemy import create_engine, Session
-from model_state import Base, State
-import sys
+"""Start link class to table in database
+"""
 
+
+import sys
+from model_state import Base, State
+from sqlalchemy import create_engine
+from sqlalchemy.orm import Session
+
+from sqlalchemy import (create_engine)
 
 if __name__ == "__main__":
     engine = create_engine(
