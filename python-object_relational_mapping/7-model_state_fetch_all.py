@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Module for using ORM SQLAlchemy, linking class to a table"""
 from sqlalchemy import create_engine, Session
 from model_state import Base, State
 import sys
