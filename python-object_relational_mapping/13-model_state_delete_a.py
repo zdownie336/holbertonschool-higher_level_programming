@@ -19,7 +19,8 @@ if __name__ == "__main__":
 
     session = Session()
 
-    table = session.query(State).filter(State.id == 2).first()
-    if table is not None:
-        table.name = "New Mexico"
-        session.commit()
+    tables = session.query(State).filter(State.name.like('%a%'))
+
+    for table in tables:
+        session.delete(table)
+    session.commit()
