@@ -19,7 +19,8 @@ if __name__ == "__main__":
 
     session = Session()
 
-    tables = session.query(State).order_by(State.id.asc()).filter(State.name.like('%a%'))
+    tables = session.query(State).order_by(State.id.asc()).\
+    filter(State.name.like('%a%'))
 
     for table in tables:
         print(f"{table.id}: {table.name}")
