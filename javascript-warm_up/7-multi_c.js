@@ -1,7 +1,7 @@
 #!/usr/bin/node
 const { argv } = require('node:process');
-let i = 0;
-while (i !== argv[2]) {
+let i = parseInt(argv[2]);
+while (i > 0) {
   console.log('C is fun');
-  i++;
+  i = i - 1;
 }
